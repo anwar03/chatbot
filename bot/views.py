@@ -6,11 +6,13 @@ from botbuilder.core import BotFrameworkAdapter, BotFrameworkAdapterSettings
 import asyncio
 import json
 from .echobot import EchoBot
+from .activityHandler import ActiveHandler
 
 botadaptersettings = BotFrameworkAdapterSettings("", "")
 botadapter = BotFrameworkAdapter(botadaptersettings)
 loop = asyncio.get_event_loop()
-ebot = EchoBot()
+#ebot = EchoBot()
+ebot = ActiveHandler()
 
 @csrf_exempt
 def messages(request):
