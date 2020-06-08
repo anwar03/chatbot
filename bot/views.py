@@ -19,7 +19,7 @@ from .state.stateBot import StateBot
 
 botadaptersettings = BotFrameworkAdapterSettings("", "")
 botadapter = BotFrameworkAdapter(botadaptersettings)
-botadapter.use(Middleware1())
+# botadapter.use(Middleware1())
 
 loop = asyncio.get_event_loop()
 # EchoBot is the first bot for testing purpose
@@ -32,7 +32,7 @@ memory_store = MemoryStorage()
 conversation_state = ConversationState(memory_store)
 user_state = UserState(memory_store)
 
-statebot = stateBot(conversation_state, user_state)
+statebot = StateBot(conversation_state, user_state)
 
 
 @csrf_exempt

@@ -25,30 +25,30 @@ class ConState:
 class UserProfile:
 
     def __init__(self):
-        self.name = ""
-        self.email = ""
-        self.phone = ""
+        self._name = ""
+        self._email = ""
+        self._phone = ""
 
     @property
     def name(self):
-        return self.name
+        return self._name
 
     @name.setter
     def name(self, name: str):
-        self.name = name
+        self._name = name
 
     @property
     def email(self):
-        return self.email
+        return self._email
 
     @email.setter
     def email(self, email: str):
-        self.email = email
+        self._email = email
 
     @property
     def phone(self):
-        return self.phone
+        return self._phone
 
     @phone.setter
     def phone(self, phone: str):
-        self.phone = phone
+        self._phone = phone
