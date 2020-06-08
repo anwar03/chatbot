@@ -7,9 +7,12 @@ import asyncio
 import json
 from .echobot import EchoBot
 from .activityHandler import ActiveHandler
+from .middleware.middleware1 import Middleware1
 
 botadaptersettings = BotFrameworkAdapterSettings("", "")
 botadapter = BotFrameworkAdapter(botadaptersettings)
+botadapter.use(Middleware1())
+
 loop = asyncio.get_event_loop()
 #ebot = EchoBot()
 ebot = ActiveHandler()
