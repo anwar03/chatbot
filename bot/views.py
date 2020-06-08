@@ -6,7 +6,7 @@ from botbuilder.core import BotFrameworkAdapter, BotFrameworkAdapterSettings
 import asyncio
 import json
 from .echobot import EchoBot
-from .activityHandler import ActiveHandler
+from .handler.activityHandler import ActiveHandler
 from .middleware.middleware1 import Middleware1
 
 botadaptersettings = BotFrameworkAdapterSettings("", "")

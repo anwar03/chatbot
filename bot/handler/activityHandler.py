@@ -8,4 +8,3 @@ class ActiveHandler(ActivityHandler):
     async def on_members_added_activity(self, member_added: ChannelAccount, turn_context:TurnContext):
         for member in member_added:
             await turn_context.send_activity(member.name)
-        #await turn_context.send_activity("hello Welcome to chatbot")
