@@ -35,18 +35,28 @@ class BotDialog(ActivityHandler):
                 ))
 
     async def get_modile_number(self, waterfall_step: WaterfallStepContext):
+        name = waterfall_step._turn_context.activity.text
+        waterfall_step.values["name"] = name
         return await waterfall_step.prompt("number_prompt",
                 PromptOptions(
                     prompt=MessageFactory.text("Please enter the mobile no")
                 ))
 
     async def get_email(self, waterfall_step: WaterfallStepContext):
+        mobile = waterfall_step._turn_context.activity.text
+        waterfall_step.values["mobile"] = mobile
         return await waterfall_step.prompt("text_prompt",
                 PromptOptions(
                     prompt=MessageFactory.text("PLease enter the email id")
                 ))
 
     async def complated(self, waterfall_step: WaterfallStepContext):
+        email = waterfall_step._turn_context.activity.text
+        waterfall_step.values["email"] = email
+        name = waterfall_step.values["name"]
+        mobile = waterfall_step.values["mobile"]
+        profile_info = f"name: {name}, email: {email}, mobile: {mobile}"
+        await waterfall_step._turn_context.send_activity(profile_info)
         return await waterfall_step.end_dialog()
 
     async def on_turn(self, turn_context: TurnContext):
