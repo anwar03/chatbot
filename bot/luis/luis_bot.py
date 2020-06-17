@@ -28,5 +28,5 @@ class LuisBot(ActivityHandler):
         luis_result = await self.Luis_reg.recognize(turn_context)
         intent = LuisRecognizer.top_intent(luis_result)
         await turn_context.send_activity(f"Top Intent : {intent}")
-        result = luis_result.properties["luisResult"]
-        await turn_context.send_activity(f"Luis Result {result.entities[0]}")
+        # result = luis_result.properties["luisResult"]
+        # await turn_context.send_activity(f"Luis Result {result.entities[0]}")

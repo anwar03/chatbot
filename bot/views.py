@@ -17,13 +17,14 @@ from .middleware.middleware1 import Middleware1
 from .state.stateBot import StateBot
 from .dialog import BotDialog
 from .luis import LuisBot
+from .qna import QnaBot
 
 botadaptersettings = BotFrameworkAdapterSettings("", "")
 botadapter = BotFrameworkAdapter(botadaptersettings)
 # botadapter.use(Middleware1())
 
-# loop = asyncio.get_event_loop()
-loop = asyncio.new_event_loop()
+loop = asyncio.get_event_loop()
+# loop = asyncio.new_event_loop()
 
 # EchoBot is the first bot for testing purpose
 # bot = EchoBot()
@@ -41,8 +42,10 @@ loop = asyncio.new_event_loop()
 # memory_store = ConversationState(MemoryStorage())
 # bot = BotDialog(memory_store)
 
-memory_store = ConversationState(MemoryStorage())
-bot = LuisBot()
+# memory_store = ConversationState(MemoryStorage())
+# used LuisBot for luis AI communication
+# bot = LuisBot()
+bot = QnaBot()
 
 
 @csrf_exempt
@@ -59,7 +62,7 @@ def messages(request):
 
         task = loop.create_task(
             botadapter.process_activity(activity, auth_header, turn_call)
-            )
+        )
         loop.run_until_complete(task)
 
         return HttpResponse("It's working")
