@@ -12,8 +12,8 @@ from botbuilder.core import (
 import asyncio
 import json
 from .echobot import EchoBot
-from .handler.activityHandler import ActiveHandler
-from .middleware.middleware1 import Middleware1
+from .handle.activityHandler import ActiveHandler
+from .middlewares.middleware1 import Middleware1
 from .state.stateBot import StateBot
 from .dialog import BotDialog
 from .luis import LuisBot

@@ -80,7 +80,6 @@ proguard/
 *.pyc
 *.egg-info
 *.pot
-*.py[co]
 .tox/
 __pycache__
 MANIFEST
@@ -92,7 +91,7 @@ tests/coverage_html/
 tests/.coverage
 build/
 tests/report/
-!**/migrations/
+migrations/*
 
 
 # C extensions
